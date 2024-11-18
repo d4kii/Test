@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
         xInput = Input.GetAxisRaw("Horizontal");
         zInput = Input.GetAxisRaw("Vertical");
 
-        moveDirection = Camera.main.transform.forward * xInput + Camera.main.transform.forward * zInput;
+        moveDirection = Camera.main.transform.forward * zInput + Camera.main.transform.right * xInput;
         moveDirection.y = 0f;
         moveDirection = Vector3.Normalize(moveDirection);
         playerController.Move(moveDirection * playerSpeed * Time.deltaTime);
